@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "8ffc13b1-33d0-4e7e-b5ed-9ba8fb2b1f72",
+		"name": "SimpleCrudProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ThetestingworldapiStudent",
+			"item": [
+				{
+					"name": "All students",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"this is a get request\");\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"let urlVar = pm.variables.get(\"url\");\r",
+									"console.log(\"value for url is: \"+urlVar);\r",
+									"\r",
+									"pm.variables.set(\"name\",\"Postman\");\r",
+									"console.log(pm.variables.get(\"name\"))\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{relative_url}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{relative_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{relative_url}}/1027902",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{relative_url}}",
+								"1027902"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 100,\r\n        \"first_name\": \"{{name}}\",\r\n        \"middle_name\": \"Lestor\",\r\n        \"last_name\": \"Marvy\",\r\n        \"date_of_birth\": \"12/12/1992\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{relative_url}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{relative_url}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update student information",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1027902,\r\n        \"first_name\": \"Gillikgjhwjhsfdlikjan\",\r\n        \"middle_name\": \"Lestor\",\r\n        \"last_name\": \"Marvy\",\r\n        \"date_of_birth\": \"12/12/1992\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{relative_url}}/1027902",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{relative_url}}",
+								"1027902"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{relative_url}}/1027903",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{relative_url}}",
+								"1027903"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://thetestingworldapi.com",
+			"type": "string"
+		}
+	]
+}
