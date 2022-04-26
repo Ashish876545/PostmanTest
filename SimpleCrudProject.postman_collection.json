@@ -9,7 +9,7 @@
 			"name": "ThetestingworldapiStudent",
 			"item": [
 				{
-					"name": "All students",
+					"name": "All student",
 					"event": [
 						{
 							"listen": "test",
